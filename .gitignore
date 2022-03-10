@@ -21,3 +21,6 @@
 
 # IGNORE compiled files
 *.class
+
+# EXCEPT TEST FOLDER
+!src/test
