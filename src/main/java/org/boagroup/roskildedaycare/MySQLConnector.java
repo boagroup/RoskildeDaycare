@@ -99,7 +99,7 @@ public class MySQLConnector {
 		for (String column: columns.navigableKeySet()) {
 			tempQuery.append(column).append(',');
 		}
-		tempQuery.deleteCharAt(tempQuery.length()-1).append(")VALUES ");
+		tempQuery.deleteCharAt(tempQuery.length()-1).append(") VALUES (");
 		for (String column: columns.navigableKeySet()) {
 			tempQuery.append(column).append(',');
 		}

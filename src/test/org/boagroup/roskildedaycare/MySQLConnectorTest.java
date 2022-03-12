@@ -23,7 +23,7 @@ class MySQLConnectorTest {
 		testedConnector.createDatabase();
 	}
 
-	@AfterEach
+//	@AfterEach
 	void cleanUp() {
 		testedConnector.dropClose();
 	}
@@ -56,7 +56,12 @@ class MySQLConnectorTest {
 	@Test
 	@Order(3)
 	void insertInto() {
-		fail();
+		createTable();
+		columns = new TreeMap<>();
+		columns.put("testId", "default");
+		columns.put("testStr", "'lolol'");
+		System.out.println(columns.toString());
+		assertTrue(testedConnector.insertInto("test", columns));
 	}
 
 	@Test
