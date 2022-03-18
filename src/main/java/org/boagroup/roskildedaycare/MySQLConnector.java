@@ -96,14 +96,16 @@ public class MySQLConnector {
 //		INSERT INTO table_name (column1, column2, column3, ...)
 //		VALUES (value1, value2, value3, ...);
 		StringBuilder tempQuery = new StringBuilder("INSERT INTO " + tableName + " (");
-		for (String column: columns.navigableKeySet()) {
+		for (String column: columns.descendingKeySet()) {
 			tempQuery.append(column).append(',');
 		}
 		tempQuery.deleteCharAt(tempQuery.length()-1).append(") VALUES (");
-		for (String column: columns.navigableKeySet()) {
-			tempQuery.append(column).append(',');
+		for (String column: columns.descendingKeySet()) {
+			tempQuery.append(columns.get(column)).append(',');
 		}
 		lastQuery = tempQuery.deleteCharAt(tempQuery.length()-1)+");";
 		return executeQuery(lastQuery)>=-1;
 	}
+
+	public ResultSet select(String TableName, String columns, String conditions) {return null;}
 }
