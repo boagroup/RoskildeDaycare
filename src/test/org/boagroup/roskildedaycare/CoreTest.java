@@ -2,6 +2,8 @@ package org.boagroup.roskildedaycare;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.TreeMap;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CoreTest {
@@ -15,13 +17,19 @@ class CoreTest {
 	}
 
 	@Test
-	void testSetDBNameReturningCore() {
-		assertTrue(Core.getInstance().setDBName("test") instanceof Core);
-	}
-
-	@Test
-	void testSetDBName() {
-		testedCore = Core.getInstance().setDBName("test");
-		assertEquals(testedCore.getDBName(),"test");
+	void userTest() {
+		MySQLConnector con = new MySQLConnector("mysql://localhost:3306", "root", "", "Daycare");
+		TreeMap<String,String> tm = new TreeMap<>();
+		tm.put("username","VARCHAR(255) NOT NULL");
+		tm.put("password", "VARCHAR(255) NOT NULL");
+		con.connect();
+		con.createDatabase();
+		con.createTable("Users", tm);
+		tm.clear();
+		tm.put("username", "'bart'");
+		tm.put("password", "'trab'");
+		assertTrue(
+		con.insertInto("Users", tm)
+		);
 	}
 }
