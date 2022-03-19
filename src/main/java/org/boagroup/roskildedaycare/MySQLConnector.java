@@ -101,7 +101,11 @@ public class MySQLConnector {
 		}
 		tempQuery.deleteCharAt(tempQuery.length()-1).append(") VALUES (");
 		for (String column: columns.descendingKeySet()) {
-			tempQuery.append(columns.get(column)).append(',');
+			if ((columns.get(column)).equalsIgnoreCase("null")) {
+				tempQuery.append(columns.get(column)).append(',');
+			} else {
+				tempQuery.append('\'').append(columns.get(column)).append("',");
+			}
 		}
 		lastQuery = tempQuery.deleteCharAt(tempQuery.length()-1)+");";
 		return executeQuery(lastQuery)>=-1;

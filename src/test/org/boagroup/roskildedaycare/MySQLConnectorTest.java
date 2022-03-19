@@ -18,12 +18,10 @@ class MySQLConnectorTest {
 	TreeMap<String, String> columns;
 
 //	@BeforeEach
-	void setUp() {
-		testedConnector = new MySQLConnector(url, usr, pw, DBName, true);
-		testedConnector.createDatabase();
-	}
+//	void setUp() {
+//	}
 
-//	@AfterEach
+	@AfterEach
 	void cleanUp() {
 		testedConnector.dropClose();
 	}
@@ -45,9 +43,10 @@ class MySQLConnectorTest {
 	@Test
 	@Order(2)
 	void createTable() {
-		setUp();
+		testedConnector = new MySQLConnector(url, usr, pw, DBName, true);
+		testedConnector.createDatabase();
 		columns = new TreeMap<>();
-		columns.put("testId","INT NOT NULL PRIMARY KEY");
+		columns.put("testId","INT PRIMARY KEY AUTO_INCREMENT");
 		columns.put("testStr", "VARCHAR(3000)");
 		System.out.println(columns.toString());
 		assertTrue(testedConnector.createTable("test", columns));
@@ -56,19 +55,16 @@ class MySQLConnectorTest {
 	@Test
 	@Order(3)
 	void insertInto() {
-		createTable();
+		testedConnector = new MySQLConnector(url, usr, pw, DBName, true);
+		testedConnector.createDatabase();
 		columns = new TreeMap<>();
-		columns.put("testId", "default");
-		columns.put("testStr", "'lolol'");
+		columns.put("testId","INT PRIMARY KEY AUTO_INCREMENT");
+		columns.put("testStr", "VARCHAR(3000)");
+		testedConnector.createTable("test", columns);
+		columns.clear();
+		columns.put("testId", "null");
+		columns.put("testStr", "lolol");
 		System.out.println(columns.toString());
 		assertTrue(testedConnector.insertInto("test", columns));
 	}
-
-	@Test
-	@Order(4)
-	void checkLogin() { fail(); }
-
-	@Test
-	@Order(5)
-	void checkPassword() { fail(); }
 }
