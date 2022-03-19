@@ -111,5 +111,16 @@ public class MySQLConnector {
 		return executeQuery(lastQuery)>=-1;
 	}
 
-	public ResultSet select(String TableName, String columns, String conditions) {return null;}
+	public ResultSet select(String TableName, String columns, String conditions) {
+		lastQuery = "SELECT " + columns + " FROM " + TableName + (conditions == null ? "" : " WHERE " + conditions) + ';';
+		try {
+			if (statement == null) {
+				statement = connect.createStatement();
+			}
+			return statement.executeQuery(lastQuery);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
