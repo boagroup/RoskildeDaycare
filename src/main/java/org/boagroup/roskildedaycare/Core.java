@@ -7,7 +7,6 @@ public class Core {
 	private static Core instance = null;
 	private MySQLConnector database;
 	private boolean isLogged = false;
-	private String DBName;
 
 	private Core() {
 		database = new MySQLConnector("mysql://localhost:3306", "root", "", "Daycare");
@@ -15,14 +14,7 @@ public class Core {
 		database.createDatabase();
 	}
 	public static Core getInstance() {
-		if (instance == null) {
-			instance = new Core();
-		}
-		return instance;
-	}
-
-	public String getDBName() {
-		return DBName;
+		return (instance == null ? new Core() : instance);
 	}
 
 	public boolean isLogged() {
@@ -30,20 +22,26 @@ public class Core {
 	}
 
 	public boolean login(String name, String password) {
-		ResultSet result = database.select("Users","Username, Password", "Username LIKE " + name + " AND Password LIKE " + password);
+		ResultSet result = database.select("Users","Username, Password", "Username = '" + name + "' AND Password = '" + password +'\'');
+		if (result == null) {
+			return isLogged=false;
+		}
 		int count = 0;
 		try {
 			while (result.next() && count < 2) {
 				count++;
 			}
-		} catch (SQLException e) {e.printStackTrace(); return isLogged=false;}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return isLogged = false;
+		}
 		return isLogged = (count == 1);
 	}
 
 	public boolean readDatabase() {return false;}
 
 	public ResultSet list(Query query) {
-		return database.select(query.TableName(), query.columns(), query.conditions());
+		return !isLogged ? null : database.select(query.TableName(), query.columns(), query.conditions());
 	}
 
 }
