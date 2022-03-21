@@ -1,4 +1,4 @@
-package com.example.daycareroskilde_new;
+package org.boagroup.roskildedaycare;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

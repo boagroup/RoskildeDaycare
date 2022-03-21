@@ -1,4 +1,4 @@
-package com.example.daycareroskilde_new;
+package org.boagroup.roskildedaycare;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.time.temporal.ChronoField;
 import java.util.Date;
 import java.util.ResourceBundle;
 
