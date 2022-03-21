@@ -38,10 +38,13 @@ public class Core {
 		return isLogged = (count == 1);
 	}
 
-	public boolean readDatabase() {return false;}
+	@Deprecated
+	public boolean readDatabase(Reader reader) {
+		return reader.setDatabase(database);
+	}
 
 	public ResultSet list(Query query) {
-		return !isLogged ? null : database.select(query.TableName(), query.columns(), query.conditions());
+		return isLogged ? database.select(query.TableName(), query.columns(), query.conditions()) : null;
 	}
 
 }
