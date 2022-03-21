@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycareroskilde_new.LogIn">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: yellow;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="41.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/Users/jakubpatelski/Projects/KEA/DayCareRoskilde_new/src/main/resources/images/daycare.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="tf_username" layoutX="57.0" layoutY="188.0" promptText="Username" />
+            <TextField fx:id="tf_password" layoutX="58.0" layoutY="232.0" promptText="Password" />
+            <Button fx:id="button_login" layoutX="90.0" layoutY="293.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" style="-fx-background-color: yellow; -fx-border-color: black;" text="Login" />
+            <Button layoutX="81.0" layoutY="345.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forget Your Password?" textFill="#072cff" underline="true" />
+            <ImageView fitHeight="150.0" fitWidth="147.0" layoutX="63.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/Users/jakubpatelski/Projects/KEA/DayCareRoskilde_new/src/main/resources/images/login_logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
