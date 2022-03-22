@@ -5,8 +5,6 @@ module com.example.daycareroskilde_new {
     requires java.sql;
 
 
-    opens com.example.daycareroskilde_new to javafx.fxml;
-    exports com.example.daycareroskilde_new;
 	exports org.boagroup.roskildedaycare;
 	opens org.boagroup.roskildedaycare to javafx.fxml;
 }

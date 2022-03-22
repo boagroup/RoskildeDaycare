@@ -18,12 +18,12 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>17-ea+11</version>
+            <version>19-ea+3</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>17-ea+11</version>
+            <version>19-ea+3</version>
         </dependency>
 
         <dependency>
@@ -66,7 +66,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>org.boagroup.roskildedaycare/org.boagroup.roskildedaycare.HelloApplication
+                            <mainClass>org.boagroup.roskildedaycare/org.boagroup.roskildedaycare.Main;
                             </mainClass>
                         </configuration>
                     </execution>
