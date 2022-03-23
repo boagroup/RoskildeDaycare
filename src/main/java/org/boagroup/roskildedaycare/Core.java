@@ -38,6 +38,10 @@ public class Core {
 		return isLogged = (count == 1);
 	}
 
+	public boolean logout() {
+		return isLogged = false;
+	}
+
 	@Deprecated
 	public boolean readDatabase(Reader reader) {
 		return reader.setDatabase(database);
