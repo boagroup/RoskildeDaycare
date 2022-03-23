@@ -15,7 +15,7 @@
           <TableColumn fx:id="column_Children_ID" prefWidth="82.0" text="Children_ID" />
           <TableColumn fx:id="column_first_name" prefWidth="146.0" text="First_Name" />
             <TableColumn fx:id="column_last_name" prefWidth="147.0" text="Last_Name" />
-            <TableColumn fx:id="column_group_Name" prefWidth="68.0" text="Group_name" />
+            <TableColumn fx:id="column_group_ID" prefWidth="68.0" text="Group_ID" />
             <TableColumn fx:id="column_birth_date" prefWidth="182.0" text="Birth_Date" />
         </columns>
       </TableView>

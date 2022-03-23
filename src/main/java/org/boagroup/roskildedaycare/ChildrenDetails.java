@@ -9,14 +9,14 @@ public class ChildrenDetails {
         private int childrenId;
         private String firstName;
         private String lastName;
-        private String groupName;
+        private int groupID;
         private Date birthDate;
 
-        public ChildrenDetails(int childrenId, String firstName, String lastName, String groupName, Date birthDate) {
+        public ChildrenDetails(int childrenId, String firstName, String lastName, int groupID, Date birthDate) {
                 this.childrenId = childrenId;
                 this.firstName = firstName;
                 this.lastName = lastName;
-                this.groupName = groupName;
+                this.groupID = groupID;
                 this.birthDate = birthDate;
         }
 
@@ -45,12 +45,12 @@ public class ChildrenDetails {
                 this.lastName = lastName;
         }
 
-        public String getGroupName() {
-                return groupName;
+        public int getGroupId() {
+                return groupID;
         }
 
-        public void setGroupName(String groupName) {
-                this.groupName = groupName;
+        public void setGroupID(int groupName) {
+                this.groupID = groupName;
         }
 
         public Date getBirthDate() {
