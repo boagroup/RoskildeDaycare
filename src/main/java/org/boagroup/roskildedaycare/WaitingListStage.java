@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class WaitingList implements Initializable {
+public class WaitingListStage implements Initializable {
 
 
     @Override

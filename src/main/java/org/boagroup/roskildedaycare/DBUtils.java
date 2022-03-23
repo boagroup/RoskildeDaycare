@@ -18,8 +18,8 @@ public class DBUtils {
             FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmFile));
             root = loader.load();
             if (username != null) {
-                LoggedIn loggedIn = loader.getController();
-                loggedIn.setUserInformation(username);
+                MainMenuStage mainMenuStage = loader.getController();
+                mainMenuStage.setUserInformation(username);
             }
         } catch (IOException e) {
             e.printStackTrace();

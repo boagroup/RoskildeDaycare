@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class Children implements Initializable {
+public class ChildrenStage implements Initializable {
 
 
     @FXML

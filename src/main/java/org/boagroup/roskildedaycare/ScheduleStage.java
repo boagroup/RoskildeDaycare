@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Schedule implements Initializable {
+public class ScheduleStage implements Initializable {
 
     @FXML
     private Button button_back;

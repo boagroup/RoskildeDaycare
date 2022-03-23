@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Parents implements Initializable {
+public class ParentsStage implements Initializable {
 
     @FXML
     private Button button_back;
