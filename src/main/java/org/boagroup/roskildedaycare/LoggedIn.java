@@ -32,12 +32,14 @@ public class LoggedIn implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        button_logout.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "log-in.fxml", "log in!", null);
+        Core core = Core.getInstance();
+        button_logout.setOnAction(event -> {
+            core.logout();
+            DBUtils.changeScene(event, "log-in.fxml", "log in!", null);
+        });
 
-            }
+        button_children.setOnAction(event -> {
+            core.list(new Query("Children","*", null));
         });
     }
 
