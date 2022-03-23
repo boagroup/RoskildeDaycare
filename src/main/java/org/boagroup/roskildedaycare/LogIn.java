@@ -26,18 +26,14 @@ public class LogIn implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        button_login.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Core core = Core.getInstance();
-                if(core.login(tf_username.getText(), tf_password.getText())) {
-                    DBUtils.changeScene(event, "Logged-in.fxml", "Menu", tf_username.getText());
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Wrong Credentials");
-                    alert.show();
-                }
-//                DBUtils.logInUser(event, tf_username.getText(), tf_password.getText());
+        button_login.setOnAction(event -> {
+            Core core = Core.getInstance();
+            if(core.login(tf_username.getText(), tf_password.getText())) {
+                DBUtils.changeScene(event, "Logged-in.fxml", "Menu", tf_username.getText());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Wrong Credentials");
+                alert.show();
             }
         });
     }
