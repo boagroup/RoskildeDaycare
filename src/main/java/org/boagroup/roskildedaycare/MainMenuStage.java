@@ -39,7 +39,7 @@ public class MainMenuStage implements Initializable {
         });
 
         button_children.setOnAction(event -> {
-            core.list(new Query("Children","*", null));
+        DBUtils.changeScene(event, "children.fxml", "Children Details", null);
         });
     }
 
