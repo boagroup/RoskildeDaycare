@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -28,7 +29,15 @@ public class LogIn implements Initializable {
         button_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //DBUtils.logInUser(event, tf_username.getText(), tf_password.getText());
+                Core core = Core.getInstance();
+                if(core.login(tf_username.getText(), tf_password.getText())) {
+                    DBUtils.changeScene(event, "Logged-in.fxml", "Menu", tf_username.getText());
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Wrong Credentials");
+                    alert.show();
+                }
+//                DBUtils.logInUser(event, tf_username.getText(), tf_password.getText());
             }
         });
     }
